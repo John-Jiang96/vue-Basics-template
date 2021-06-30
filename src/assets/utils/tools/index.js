@@ -1,4 +1,6 @@
 import dayjs from 'dayjs'
+import Cookies from 'js-cookie'
+import config from '../../../../customConfiguration/config'
 const files = require.context('./', true, /\.js$/)
 let modules = []
 files.keys().forEach((key) => {
@@ -11,9 +13,18 @@ files.keys().forEach((key) => {
     }
 })
 const utils = [{
-    name: 'dayjs',
-    entity: dayjs
-}]
+        name: 'dayjs',
+        entity: dayjs
+    },
+    {
+        name: 'cookies',
+        entity: Cookies
+    },
+    {
+        name: 'config',
+        entity: config
+    },
+]
 export default class parentTool {
     constructor(content) {
         this.content = content || {}

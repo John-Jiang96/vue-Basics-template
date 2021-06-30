@@ -29,9 +29,8 @@ export default {
     },
     install(vue) {
         vue.use(new tools(customPlugin))
-            // 设置axios默认参数
-            // axios.defaults.baseURL = Vue.$config.axiosBaseUrl;
-            // axios.defaults.responseType = Vue.$config.axiosResponseType;
+        axios.defaults.baseURL = Vue.$config.axiosBaseUrl;
+        axios.defaults.responseType = Vue.$config.axiosResponseType;
         axios.defaults.timeout = 10000;
         axios.defaults.withCredentials = true;
 

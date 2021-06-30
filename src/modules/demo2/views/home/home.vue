@@ -1,13 +1,15 @@
 <template>
-    <div>
-        demo2
-    </div>
+  <div>demo2
+      <el-button @click="open">inputForm</el-button>
+  </div>
 </template>
 
 <script>
 export default {
-    mounted(){
-        console.log(Vue.component('FormBody'));
-    }
-}
+    methods: {
+        open(){
+            this.$router.push({ path: 'inputForm' })
+        }
+    },
+};
 </script>
