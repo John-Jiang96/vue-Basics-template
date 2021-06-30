@@ -1,4 +1,5 @@
 const path = require('path')
+const dev = 'http://localhost:8080'
 
 function resolve(dir) {
     return path.join(__dirname, dir)
@@ -16,17 +17,40 @@ const cdn = {
     ]
 }
 module.exports = {
+    lintOnSave: false,
+    assetsDir: "static",
+    devServer: {
+        host: '0.0.0.0',
+        disableHostCheck: true,
+        port: 8078,
+        proxy: {
+            '/api': {
+                target: dev,
+                changeOrigin: true,
+                ws: true,
+                pathRewrite: {
+                    '^/api': '/'
+                }
+            }
+        },
+        sockHost: 'http://0.0.0.0:8080'
+    },
     pages: {
         index: {
-            // page 的入口
-            entry: 'src/main.js',
-            // 当使用 title 选项时，
-            // template 中的 title 标签需要是 <title><%= htmlWebpackPlugin.options.title %></title>
-            title: 'Index Page',
+            entry: 'src/models/demo1/main.js',
+            template: 'public/index.html',
+            title: 'demo1',
             icon: 'public/favicon.ico',
             cdn,
-            rdpModule: 'rdpModule'
-
+            rdpModule: 'demo1'
+        },
+        demo2: {
+            entry: 'src/models/demo2/main.js',
+            template: 'public/index1.html',
+            title: 'demo2',
+            icon: 'public/favicon.ico',
+            cdn,
+            rdpModule: 'demo2'
         }
     },
     chainWebpack: config => {
