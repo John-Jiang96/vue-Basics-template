@@ -5,11 +5,19 @@ const route = [{
     component: layout,
     name: 'demo1',
     children: [{
-        path: 'demo1Home',
-        component: demo1Home,
-        name: 'demo1Home'
-    }, ]
-}];
+            path: 'demo1Home',
+            component: (r) =>
+                require.ensure([], () => r(require('./home'))),
+            name: 'demo1Home'
+        },
+        {
+            path: 'echarts',
+            component: (r) =>
+                require.ensure([], () => r(require('./echarts'))),
+            name: 'echarts'
+        }
+    ]
+}, ];
 
 route.forEach(item => {
     item.children.forEach(it => {
