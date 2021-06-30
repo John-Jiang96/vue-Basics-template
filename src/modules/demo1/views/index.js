@@ -1,19 +1,18 @@
 import layout from '@/views/layout/layout.vue';
-import demo1Home from './home';
 const route = [{
     path: '/demo1',
     component: layout,
     name: 'demo1',
     children: [{
             path: 'demo1Home',
-            component: (r) =>
-                require.ensure([], () => r(require('./home'))),
+            component: () =>
+                import ('./home'),
             name: 'demo1Home'
         },
         {
             path: 'echarts',
-            component: (r) =>
-                require.ensure([], () => r(require('./echarts'))),
+            component: () =>
+                import ('./echarts'),
             name: 'echarts'
         }
     ]

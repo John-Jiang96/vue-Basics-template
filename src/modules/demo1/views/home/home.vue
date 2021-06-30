@@ -2,6 +2,7 @@
     <div>
         demo1
         <el-button @click="open">echarts</el-button>
+        <el-button @click="$router.go(-1)">goBack</el-button>
     </div>
 </template>
 
