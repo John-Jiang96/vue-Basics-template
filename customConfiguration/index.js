@@ -5,7 +5,7 @@ const dev = 'http://localhost:8080'
 const glob = require('glob');
 // cdn
 const cdn = {
-    css: ['https://cdn.bootcdn.net/ajax/libs/element-ui/2.13.0/theme-chalk/index.css'],
+    css: ['https://cdn.bootcdn.net/ajax/libs/element-ui/2.13.0/theme-chalk/index.css', 'https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css'],
     js: [
         "https://cdn.bootcdn.net/ajax/libs/vue/2.6.10/vue.min.js",
         "https://cdn.bootcdn.net/ajax/libs/vue-router/3.0.6/vue-router.min.js",
@@ -13,7 +13,7 @@ const cdn = {
         "https://cdn.bootcdn.net/ajax/libs/axios/0.18.1/axios.min.js",
         "https://cdn.bootcdn.net/ajax/libs/element-ui/2.13.0/index.js",
         "https://cdn.bootcdn.net/ajax/libs/js-cookie/2.2.0/js.cookie.min.js",
-        "https://cdn.bootcdn.net/ajax/libs/nprogress/0.2.0/nprogress.js"
+        "https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js"
     ]
 }
 
