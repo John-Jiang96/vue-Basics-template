@@ -8,7 +8,7 @@ const cdn = {
     css: ['https://cdn.bootcdn.net/ajax/libs/element-ui/2.13.0/theme-chalk/index.css', 'https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css'],
     js: [
         "https://cdn.bootcdn.net/ajax/libs/vue/2.6.10/vue.min.js",
-        "https://cdn.bootcdn.net/ajax/libs/vue-router/3.0.6/vue-router.min.js",
+        "https://cdn.bootcdn.net/ajax/libs/vue-router/3.1.3/vue-router.min.js",
         "https://cdn.bootcdn.net/ajax/libs/vuex/3.1.0/vuex.min.js",
         "https://cdn.bootcdn.net/ajax/libs/axios/0.18.1/axios.min.js",
         "https://cdn.bootcdn.net/ajax/libs/element-ui/2.13.0/index.js",

@@ -6,13 +6,13 @@ const route = [{
     children: [{
             path: 'demo1Home',
             component: () =>
-                import ('./home'),
+                import ( /* webpackChunkName: "group-foo" */ './home'),
             name: 'demo1Home'
         },
         {
             path: 'echarts',
             component: () =>
-                import ('./echarts'),
+                import ( /* webpackChunkName: "group-foo" */ './echarts'),
             name: 'echarts'
         }
     ]

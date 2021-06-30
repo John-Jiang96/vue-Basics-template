@@ -1,7 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import NProgress from 'nprogress';
-import login from '@/views/login/login.vue'
 // NProgress.configure({ showSpinner: false });
 // 重写路由跳转 防止相同路由保存
 // const originalPush = VueRouter.prototype.push;
@@ -11,10 +10,18 @@ import login from '@/views/login/login.vue'
 Vue.use(VueRouter)
 const createRouter = (views) => {
     const routes = [{
+            path: '/',
+            redirect: to => {
+                // 方法接收 目标路由 作为参数
+                // return 重定向的 字符串路径/路径对象
+                return '/login'
+            }
+        },
+        {
             path: '/login',
             name: 'login',
             component: () =>
-                import ('@/views/login/login.vue'),
+                import ( /* webpackChunkName: "group-foo" */ '@/views/login/login.vue'),
         },
         ...views
     ]

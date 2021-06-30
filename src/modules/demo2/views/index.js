@@ -1,5 +1,4 @@
 import layout from '@/views/layout/layout.vue';
-import demo2Home from './home';
 const route = [{
     path: '/demo2',
     component: layout,
@@ -7,13 +6,13 @@ const route = [{
     children: [{
             path: 'demo2Home',
             component: () =>
-                import ('./home'),
+                import ( /* webpackChunkName: "group-foo" */ './home'),
             name: 'demo2Home'
         },
         {
             path: 'inputForm',
             component: () =>
-                import ('./inputForm'),
+                import ( /* webpackChunkName: "group-foo" */ './inputForm'),
             name: 'inputForm'
         },
     ]
