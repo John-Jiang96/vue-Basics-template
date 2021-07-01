@@ -1,14 +1,13 @@
 import content from '@/assets/utils/initData';
-console.log(content);
 export default class Directive {
     constructor() {}
-    registerDirective(vue, list) {
+    registerDirective(list) {
         list.entity.forEach(item => {
-            vue.directive(item.name, item.entity)
+            Vue.directive(item.name, item.entity)
         })
     }
     install(vue) {
         vue.prop('registerDirective', this.registerDirective)
-        this.registerDirective(vue, content['directive'])
+        this.registerDirective(content['directive'])
     }
 }

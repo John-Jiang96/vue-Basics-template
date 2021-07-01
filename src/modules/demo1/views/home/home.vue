@@ -1,12 +1,11 @@
 <template>
   <div>
-    demo1
     <br />
-    {{ name }} {{ num }}
+    {{ name | ceshi }} {{ num | ceshi2 }}
     <br />
     {{ new Date() | getDay }}
     <el-button @click="save">添加vuex</el-button>
-    <el-button @click="open">echarts</el-button>
+    <el-button @click="open">open</el-button>
     <el-button @click="$router.go(-1)">goBack</el-button>
   </div>
 </template>
@@ -19,13 +18,16 @@ export default {
   },
   methods: {
     ...mapActions("demo1", ["setName", "setNum"]),
-    save(){
-        this.setName('测试')
-        this.setNum(123)
+    save() {
+      this.setName("测试");
+      this.setNum(123);
     },
     open() {
       this.$router.push({ path: "echarts" });
     },
   },
+  mounted(){
+    console.log(Vue.filter('ceshi'));
+  }
 };
 </script>

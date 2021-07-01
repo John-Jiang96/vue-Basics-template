@@ -1,7 +1,7 @@
 export default {
     entity: [{
             name: 'format',
-            methodSubject: (num, len) => {
+            entity: (num, len) => {
                 if (!num || isNaN(num)) return 0.00
                 if (len != undefined) {
                     return `${(num * 1).toFixed(len)}`.replace(
@@ -18,7 +18,7 @@ export default {
         },
         {
             name: 'getDay',
-            methodSubject: (times, type = 'YYYY-MM-DD') => {
+            entity: (times, type = 'YYYY-MM-DD') => {
                 if (!times) return ''
                 return Vue.$dayjs(times).format(type)
             }
