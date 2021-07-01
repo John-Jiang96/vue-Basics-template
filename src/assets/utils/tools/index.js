@@ -45,7 +45,6 @@ export default class parentTool {
         utils.forEach(item => {
             vue.prop(item.name, item.entity)
         })
-        console.log(modules);
         modules.forEach((item) => {
             vue.use(new item['entity']())
         })
