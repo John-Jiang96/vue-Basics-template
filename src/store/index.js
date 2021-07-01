@@ -1,9 +1,7 @@
 import config from '../../customConfiguration/config';
 import createPersistedState from "vuex-persistedstate";
 import modules from './modules';
-console.log(modules);
 const env = config[process.env.NODE_ENV];
-console.log(env);
 Vue.use(Vuex)
 
 const store = new Vuex.Store({

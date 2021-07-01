@@ -7,7 +7,6 @@ export default class Directive {
         })
     }
     install(vue) {
-        console.log(content['directive']);
         vue.prop('registerDirective', this.registerDirective)
         this.registerDirective(vue, content['directive'])
     }
