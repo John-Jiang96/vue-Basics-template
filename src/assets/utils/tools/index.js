@@ -34,9 +34,7 @@ const utils = [{
     },
 ]
 export default class parentTool {
-    constructor(content) {
-        this.content = content || {}
-    }
+    constructor() {}
     registerMethods(vue) {
         vue.prop = (key, value) => {
             vue[`$${key}`] = vue.prototype[`$${key}`] = value;
