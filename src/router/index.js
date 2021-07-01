@@ -1,12 +1,3 @@
-import Vue from 'vue'
-import VueRouter from 'vue-router'
-import NProgress from 'nprogress';
-// NProgress.configure({ showSpinner: false });
-// 重写路由跳转 防止相同路由保存
-// const originalPush = VueRouter.prototype.push;
-// VueRouter.prototype.push = function push(location) {
-//     return originalPush.call(this, location).catch(err => err)
-// }
 Vue.use(VueRouter)
 const createRouter = (views) => {
     const routes = [{
