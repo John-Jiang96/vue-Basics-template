@@ -40,12 +40,12 @@ const createRouter = (views) => {
         })
         // 路由权限控制
     router.beforeEach((to, from, next) => {
-        const isLogin = Vue.$cookies.get('isLogin');
-        const num = Vue.$cookies.get('num');
-        Vue.$cookies.set('num', (num * 1 || 0) + 1);
-        console.log(API_CONFIG);
-        const { meta, name } = to;
         NProgress.start();
+        const isLogin = Vue.$cookies.get('isLogin');
+        const { meta, name } = to;
+        if (name !== 'login' && !isLogin) {
+            next('/login')
+        }
         next()
     });
 

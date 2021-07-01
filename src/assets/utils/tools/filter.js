@@ -30,10 +30,13 @@ export default class Filter {
         ]
         this.configList = options.concat(this.content);
     }
-    install(vue) {
-        this.registerMethods(vue)
+    registerFilter(vue) {
         this.configList.forEach((f) => {
             vue.filter(f.name, f.methodSubject)
         })
+    }
+    install(vue) {
+        this.registerMethods(vue)
+        this.registerFilter(vue)
     }
 }

@@ -13,10 +13,13 @@ export default class Directive {
         }]
         this.configList = options.concat(this.content)
     }
-    install(vue) {
-        this.registerMethods()
+    registerDirective(vue) {
         this.configList.forEach(item => {
             vue.directive(item.name, item.entity)
         })
+    }
+    install(vue) {
+        this.registerMethods()
+        this.registerDirective(vue)
     }
 }
