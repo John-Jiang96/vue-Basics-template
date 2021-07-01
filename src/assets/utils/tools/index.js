@@ -33,6 +33,7 @@ const utils = [{
         entity: getDay
     },
 ]
+console.log(1);
 export default class parentTool {
     constructor() {}
     registerMethods(vue) {
