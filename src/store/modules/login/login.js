@@ -1,5 +1,6 @@
 const initState = () => {
     return {
+        isLogin: false,
         name: '',
         num: 0
     };
@@ -11,14 +12,21 @@ const getters = {
     },
     num(state) {
         return state.num;
+    },
+    isLogin(state) {
+        return state.isLogin
     }
 };
 const mutations = {
     setName(state, value) {
-        state.modelTreeSelected = value;
+        state.name = value;
     },
     setNum(state, value) {
-        state.modelTreeExpand = value;
+        state.num = value;
+    },
+    setLogin(state, value) {
+        state.isLogin = value;
+        Vue.$cookies.set('isLogin', value)
     },
     // 用于退出登录统一重置数据
     resetState(state) {
@@ -26,6 +34,9 @@ const mutations = {
     }
 };
 const actions = {
+    setLogin({ commit }, value) {
+        commit('setLogin', value)
+    },
     setName({ commit }, value) {
         commit('setName', value);
     },
