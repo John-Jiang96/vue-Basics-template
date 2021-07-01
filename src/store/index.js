@@ -5,7 +5,17 @@ const env = config[process.env.NODE_ENV];
 Vue.use(Vuex)
 
 const store = new Vuex.Store({
-    plugins: [createPersistedState()],
+    plugins: [createPersistedState({
+        reducer(state) {
+            // 刷新时只需要保存主要的信息,其他的初始化
+            let params = {
+                login: {
+                    ...state.login
+                }
+            };
+            return params;
+        }
+    })],
     modules: {
         ...modules.global,
         ...modules.other

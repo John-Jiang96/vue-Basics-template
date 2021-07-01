@@ -22,7 +22,15 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 var env = _config["default"][process.env.NODE_ENV];
 Vue.use(Vuex);
 var store = new Vuex.Store({
-  plugins: [(0, _vuexPersistedstate["default"])()],
+  plugins: [(0, _vuexPersistedstate["default"])({
+    reducer: function reducer(state) {
+      // 刷新时只需要保存主要的信息,其他的初始化
+      var params = {
+        login: _objectSpread({}, state.login)
+      };
+      return params;
+    }
+  })],
   modules: _objectSpread({}, _modules["default"].global, {}, _modules["default"].other),
   actions: {
     resetState: function resetState(context) {
