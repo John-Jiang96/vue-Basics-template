@@ -1,4 +1,4 @@
-// const isProduction = ['production', 'prod'].includes(process.env.NODE_ENV);
+const isProduction = ['production', 'prod'].includes(process.env.NODE_ENV);
 // 本地开发代理地址
 const dev = 'http://localhost:8080'
     // 引入依赖
@@ -45,8 +45,15 @@ moduleEnvs.forEach(moduleEnv => {
         };
     }
 });
+// 代码压缩 去除无用的打印和debugger
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
+    // 打包文件可视化插件,用于直观的看到文件的大小进行优化
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 module.exports = {
     dev,
     envs,
-    pages
+    pages,
+    UglifyJsPlugin,
+    BundleAnalyzerPlugin,
+    isProduction
 }

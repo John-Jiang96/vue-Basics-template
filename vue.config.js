@@ -1,9 +1,8 @@
-const { dev, envs, pages } = require('./customConfiguration');
+const { dev, envs, pages, UglifyJsPlugin, BundleAnalyzerPlugin, isProduction } = require('./customConfiguration');
 const path = require('path');
 const resolve = (dir) => {
     return path.join(__dirname, dir)
 }
-
 module.exports = {
     lintOnSave: false,
     assetsDir: "static",
@@ -47,6 +46,36 @@ module.exports = {
             'element-ui': 'ELEMENT',
             'js-cookie': 'Cookies',
             'nprogress': 'NProgress'
+        }
+        if (isProduction) {
+            const plugins = [];
+            plugins.push(new BundleAnalyzerPlugin({
+                analyzerMode: 'disabled',
+                generateStatsFile: true,
+                statsOptions: { source: false }
+            }))
+            plugins.push(new UglifyJsPlugin({
+                uglifyOptions: {
+                    compress: {
+                        drop_debugger: true,
+                        drop_console: true,
+                        pure_funcs: ['console.log']
+                    }
+                },
+                sourceMap: false,
+                parallel: true
+            }))
+            config.plugins = [...config.plugins, ...plugins];
+            // 修改打包静态资源文件大小设置的配置
+            config.performance = {
+                hints: 'warning', // 枚举
+                maxAssetSize: 30000000, // 整数类型（以字节为单位）
+                maxEntrypointSize: 50000000, // 整数类型（以字节为单位）
+                assetFilter: function(assetFilename) {
+                    // 提供资源文件名的断言函数
+                    return assetFilename.endsWith('.css') || assetFilename.endsWith('.js');
+                }
+            };
         }
     },
     css: {

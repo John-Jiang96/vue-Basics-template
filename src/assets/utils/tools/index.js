@@ -1,6 +1,10 @@
 import dayjs from 'dayjs'
 import Cookies from 'js-cookie'
 import config from '../../../../customConfiguration/config'
+const getDay = (times, type = 'YYYY-MM-DD') => {
+    if (!times) return ''
+    return Vue.$dayjs(times).format(type)
+}
 const files = require.context('./', true, /\.js$/)
 let modules = []
 files.keys().forEach((key) => {
@@ -23,6 +27,10 @@ const utils = [{
     {
         name: 'config',
         entity: config
+    },
+    {
+        name: 'getDay',
+        entity: getDay
     },
 ]
 export default class parentTool {

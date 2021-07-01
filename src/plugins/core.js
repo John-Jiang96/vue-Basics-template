@@ -1,7 +1,6 @@
 import { Loading } from 'element-ui';
 import axios from 'axios';
 import tools from '@/assets/utils/tools';
-import customPlugin from './customPlugin'
 let loading;
 let loadingNum = 0;
 export default {
@@ -9,7 +8,7 @@ export default {
         if (loadingNum === 0) {
             loading = Loading.service({
                 lock: true,
-                text: 'Loading',
+                text: '加载中...',
                 spinner: 'el-icon-loading',
                 background: 'rgba(0, 0, 0, 0.7)'
             });
@@ -28,7 +27,7 @@ export default {
         }
     },
     install(vue) {
-        vue.use(new tools(customPlugin))
+        vue.use(new tools())
         axios.defaults.baseURL = Vue.$config.axiosBaseUrl;
         axios.defaults.responseType = Vue.$config.axiosResponseType;
         axios.defaults.timeout = 10000;

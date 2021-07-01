@@ -1,25 +1,14 @@
+import content from '@/assets/utils/initData';
 export default class Directive {
-    constructor(content) {
-        this.content = content || []
-    }
-    registerMethods() {
-        let options = [{
-            name: 'focus',
-            entity: {
-                inserted: function(el) {
-                    el.focus()
-                }
-            }
-        }]
-        this.configList = options.concat(this.content)
-    }
-    registerDirective(vue) {
-        this.configList.forEach(item => {
+    constructor() {}
+    registerDirective(vue, list) {
+        list.entity.forEach(item => {
             vue.directive(item.name, item.entity)
         })
     }
     install(vue) {
-        this.registerMethods()
-        this.registerDirective(vue)
+        console.log(content['directive']);
+        vue.prop('registerDirective', this.registerDirective)
+        this.registerDirective(vue, content['directive'])
     }
 }
