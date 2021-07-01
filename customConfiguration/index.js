@@ -15,7 +15,8 @@ const cdn = {
         "https://cdn.bootcdn.net/ajax/libs/axios/0.18.1/axios.min.js",
         "https://cdn.bootcdn.net/ajax/libs/element-ui/2.13.0/index.js",
         "https://cdn.bootcdn.net/ajax/libs/js-cookie/2.2.0/js.cookie.min.js",
-        "https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js"
+        "https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js",
+        "https://lib.baomitu.com/lodash.js/4.17.21/lodash.min.js",
     ]
 }
 

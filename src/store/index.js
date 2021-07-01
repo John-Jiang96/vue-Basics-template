@@ -1,15 +1,28 @@
-import Vue from 'vue'
-import Vuex from 'vuex'
-
+import config from '../../customConfiguration/config';
+import createPersistedState from "vuex-persistedstate";
+import modules from './modules';
+console.log(modules);
+const env = config[process.env.NODE_ENV];
+console.log(env);
 Vue.use(Vuex)
 
-export default new Vuex.Store({
-  state: {
-  },
-  mutations: {
-  },
-  actions: {
-  },
-  modules: {
-  }
+const store = new Vuex.Store({
+    plugins: [createPersistedState()],
+    modules: {
+        ...modules.global,
+        ...modules.other
+    },
+    actions: {
+        resetState(context) {
+            let types = _.keys(context.rootState);
+            Cookies.remove('isLogin');
+            localStorage.clear();
+            types.forEach(item => {
+                if (store._mutations[`${item}/resetState`]) {
+                    context.commit(`${item}/resetState`);
+                }
+            });
+        }
+    }
 })
+export default store

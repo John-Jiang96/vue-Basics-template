@@ -45,7 +45,8 @@ module.exports = {
             'axios': 'axios',
             'element-ui': 'ELEMENT',
             'js-cookie': 'Cookies',
-            'nprogress': 'NProgress'
+            'nprogress': 'NProgress',
+            'lodash': '_',
         }
         if (isProduction) {
             const plugins = [];
