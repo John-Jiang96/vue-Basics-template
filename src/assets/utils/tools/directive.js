@@ -1,4 +1,5 @@
 import content from '@/assets/utils/initData';
+console.log(content);
 export default class Directive {
     constructor() {}
     registerDirective(vue, list) {

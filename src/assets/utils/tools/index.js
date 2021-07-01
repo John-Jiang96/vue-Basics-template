@@ -33,7 +33,6 @@ const utils = [{
         entity: getDay
     },
 ]
-console.log(1);
 export default class parentTool {
     constructor() {}
     registerMethods(vue) {
@@ -46,8 +45,9 @@ export default class parentTool {
         utils.forEach(item => {
             vue.prop(item.name, item.entity)
         })
+        console.log(modules);
         modules.forEach((item) => {
-            vue.use(new item['entity'](this.content[item.name]))
+            vue.use(new item['entity']())
         })
     }
 }
