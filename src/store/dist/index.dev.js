@@ -11,6 +11,8 @@ var _vuexPersistedstate = _interopRequireDefault(require("vuex-persistedstate"))
 
 var _modules = _interopRequireDefault(require("./modules"));
 
+var _vue = _interopRequireDefault(require("vue"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
@@ -20,7 +22,9 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 var env = _config["default"][process.env.NODE_ENV];
-Vue.use(Vuex);
+
+_vue["default"].use(Vuex);
+
 var store = new Vuex.Store({
   plugins: [(0, _vuexPersistedstate["default"])({
     reducer: function reducer(state) {
@@ -34,9 +38,11 @@ var store = new Vuex.Store({
   modules: _objectSpread({}, _modules["default"].global, {}, _modules["default"].other),
   actions: {
     resetState: function resetState(context) {
-      var types = _.keys(context.rootState);
+      // let types = _.keys(context.rootState);
+      var types = Object.keys(context.rootState);
 
-      Cookies.remove('isLogin');
+      _vue["default"].$cookies.remove('isLogin');
+
       localStorage.clear();
       types.forEach(function (item) {
         if (store._mutations["".concat(item, "/resetState")]) {

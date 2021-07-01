@@ -1,6 +1,7 @@
 import config from '../../customConfiguration/config';
 import createPersistedState from "vuex-persistedstate";
 import modules from './modules';
+import Vue from 'vue';
 const env = config[process.env.NODE_ENV];
 Vue.use(Vuex)
 
@@ -22,8 +23,9 @@ const store = new Vuex.Store({
     },
     actions: {
         resetState(context) {
-            let types = _.keys(context.rootState);
-            Cookies.remove('isLogin');
+            // let types = _.keys(context.rootState);
+            let types = Object.keys(context.rootState)
+            Vue.$cookies.remove('isLogin');
             localStorage.clear();
             types.forEach(item => {
                 if (store._mutations[`${item}/resetState`]) {
