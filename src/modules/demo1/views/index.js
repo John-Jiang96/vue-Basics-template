@@ -14,7 +14,13 @@ const route = [{
             component: () =>
                 import ( /* webpackChunkName: "group-foo" */ './echarts'),
             name: 'echarts'
-        }
+        },
+        {
+            path: 'antv',
+            component: () =>
+                import ( /* webpackChunkName: "group-foo" */ './antv'),
+            name: 'antv'
+        },
     ]
 }, ];
 

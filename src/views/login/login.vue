@@ -62,7 +62,6 @@ export default {
 
 <style lang="scss" scoped>
 .login {
-  text-align: center;
   .login-info {
     width: 350px;
     margin: 0 auto;

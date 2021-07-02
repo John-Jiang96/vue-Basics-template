@@ -15,10 +15,10 @@ const getters = {
 };
 const mutations = {
     setName(state, value) {
-        state.modelTreeSelected = value;
+        state.name = value;
     },
     setNum(state, value) {
-        state.modelTreeExpand = value;
+        state.num = value;
     },
     // 用于退出登录统一重置数据
     resetState(state) {

@@ -15,6 +15,12 @@ const route = [{
                 import ( /* webpackChunkName: "group-foo" */ './inputForm'),
             name: 'inputForm'
         },
+        {
+            path: 'countTo',
+            component: () =>
+                import ( /* webpackChunkName: "group-foo" */ './countTo'),
+            name: 'countTo'
+        },
     ]
 }];
 
