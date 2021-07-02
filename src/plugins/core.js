@@ -1,6 +1,6 @@
 import { Loading } from 'element-ui';
 import axios from 'axios';
-import tools from '@/assets/utils/tools';
+import ParentTool from '@/assets/utils/tools';
 let loading;
 let loadingNum = 0;
 export default {
@@ -27,7 +27,7 @@ export default {
         }
     },
     install(vue) {
-        vue.use(new tools())
+        vue.use(new ParentTool())
         axios.defaults.baseURL = Vue.$config.axiosBaseUrl;
         axios.defaults.responseType = Vue.$config.axiosResponseType;
         axios.defaults.timeout = 10000;

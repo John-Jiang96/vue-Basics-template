@@ -47,6 +47,7 @@ module.exports = {
             'js-cookie': 'Cookies',
             'nprogress': 'NProgress',
             'lodash': '_',
+            'dayjs': 'dayjs',
         }
         if (isProduction) {
             const plugins = [];

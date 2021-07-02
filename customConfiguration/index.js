@@ -17,6 +17,7 @@ const cdn = {
         "https://cdn.bootcdn.net/ajax/libs/js-cookie/2.2.0/js.cookie.min.js",
         "https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js",
         "https://lib.baomitu.com/lodash.js/4.17.15/lodash.min.js",
+        "https://lib.baomitu.com/dayjs/1.10.5/dayjs.min.js",
     ]
 }
 

@@ -1,5 +1,3 @@
-import dayjs from 'dayjs'
-import Cookies from 'js-cookie'
 import config from '../../../../customConfiguration/config'
 const getDay = (times, type = 'YYYY-MM-DD') => {
     if (!times) return ''
@@ -33,7 +31,7 @@ const utils = [{
         entity: getDay
     },
 ]
-export default class parentTool {
+export default class ParentTool {
     constructor() {}
     registerMethods(vue) {
         vue.prop = (key, value) => {

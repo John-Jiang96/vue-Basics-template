@@ -26,7 +26,7 @@ const mutations = {
     },
     setLogin(state, value) {
         state.isLogin = value;
-        Vue.$cookies.set('isLogin', value)
+        Vue.$cookies.set('isLogin', value, '192.168.2.35', '/a/12');
     },
     // 用于退出登录统一重置数据
     resetState(state) {

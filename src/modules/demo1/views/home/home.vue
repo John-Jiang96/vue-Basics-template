@@ -1,7 +1,7 @@
 <template>
   <div>
     <br />
-    {{ name | ceshi }} {{ num | ceshi2 }}
+    {{ name }} {{ num | ceshi2 }}
     <br />
     {{ new Date() | getDay }}
     <el-button @click="save">添加vuex</el-button>
@@ -25,9 +25,6 @@ export default {
     open() {
       this.$router.push({ path: "echarts" });
     },
-  },
-  mounted(){
-    console.log(Vue.filter('ceshi'));
   }
 };
 </script>
