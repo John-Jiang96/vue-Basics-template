@@ -2,7 +2,7 @@ const initState = () => {
     return {
         isLogin: false,
         name: '',
-        num: 0
+        num: ''
     };
 };
 const state = initState();

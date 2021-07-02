@@ -1,7 +1,7 @@
 const initState = () => {
     return {
         name: '',
-        num: 0
+        num: ''
     };
 };
 const state = initState();

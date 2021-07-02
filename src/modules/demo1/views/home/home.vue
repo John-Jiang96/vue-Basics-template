@@ -1,23 +1,35 @@
 <template>
-  <div>
+  <div class="demo-home">
+    <p>这是demo1的项目</p>
+    <p>
+      <span>当前登录人是: {{ name }}</span> |
+      <span>当前登录密码是: {{ num }}</span>
+    </p>
     <br />
-    {{ name }} {{ num | ceshi2 }}
-    <br />
-    {{ new Date() | getDay }}
-    <el-button @click="save">添加vuex</el-button>
-    <el-button @click="open">open</el-button>
-    <el-button @click="$router.go(-1)">goBack</el-button>
+    <el-button @click="save">给demo1添加状态(刷新会丢失)</el-button>
+    <p>
+       <span>demo1是: {{ demo1Name }}</span> |
+      <span>demo1是: {{ demo1Num }}</span>
+    </p>
+    <el-button @click="open">进入下一个页面</el-button>
+    <el-button @click="$router.go(-1)">返回上一页</el-button>
   </div>
 </template>
 
 <script>
-import { mapActions, mapGetters } from "vuex";
+import { createNamespacedHelpers } from "vuex";
+const { mapGetters: demo1Getters, mapActions: demo1Actions } = createNamespacedHelpers('demo1')
+const { mapGetters: loginGetters } = createNamespacedHelpers('login')
 export default {
   computed: {
-    ...mapGetters("demo1", ["name", "num"]),
+    ...demo1Getters({
+      demo1Name: 'name',
+      demo1Num: 'num',
+    }),
+    ...loginGetters(["name", "num"])
   },
   methods: {
-    ...mapActions("demo1", ["setName", "setNum"]),
+    ...demo1Actions(["setName", "setNum"]),
     save() {
       this.setName("测试");
       this.setNum(123);
@@ -25,6 +37,12 @@ export default {
     open() {
       this.$router.push({ path: "echarts" });
     },
-  }
+  },
 };
 </script>
+
+<style lang="scss" scoped>
+.demo-home {
+  text-align: center;
+}
+</style>
