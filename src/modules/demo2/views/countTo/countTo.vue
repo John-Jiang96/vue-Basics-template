@@ -1,6 +1,7 @@
 <template>
-  <div>
+  <div class="countTo">
     <countTo
+      class="countTo-color"
       ref="countTo"
       :startVal="startVal"
       :endVal="endVal"
@@ -22,7 +23,8 @@
         <p>持续时间:</p>
         <el-input type="text" v-model="duration"></el-input>
       </div>
-    </div>100
+    </div>
+    100
     <div class="options">
       <div>
         <p>前缀:</p>
@@ -32,9 +34,7 @@
         <p>后缀:</p>
         <el-input type="text" v-model="suffix"></el-input>
       </div>
-      <div>
-        
-      </div>
+      <div></div>
     </div>
     <el-button type="primary" @click="reset">重置</el-button>
     <el-button type="primary" @click="start">开始</el-button>
@@ -53,8 +53,8 @@ export default {
       startVal: 0,
       endVal: 2017,
       duration: 4000,
-      prefix: '￥',
-      suffix: 'RMB'
+      prefix: "￥  ",
+      suffix: "   RMB",
     };
   },
   methods: {
@@ -68,7 +68,7 @@ export default {
       this.$refs.countTo.pause();
     },
     pauseResume() {
-      this.$refs.countTo.pauseResume()
+      this.$refs.countTo.pauseResume();
     },
     goBack() {
       this.$router.go(-1);
@@ -78,6 +78,13 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.countTo-color {
+  color: red;
+  font-size: 18px;
+  font-family: 'YouYuan', 'Hiragino Sans GB', 'Microsoft Yahei', '微软雅黑', Arial, sans-serif;
+
+
+}
 .options {
   display: flex;
   & > div {

@@ -19,6 +19,10 @@ const utils = [{
         entity: dayjs
     },
     {
+        name: 'getDay',
+        entity: getDay
+    },
+    {
         name: 'cookies',
         entity: Cookies
     },
@@ -27,8 +31,12 @@ const utils = [{
         entity: config
     },
     {
-        name: 'getDay',
-        entity: getDay
+        name: 'echarts',
+        entity: echarts
+    },
+    {
+        name: 'G6',
+        entity: G6
     },
 ]
 export default class ParentTool {
