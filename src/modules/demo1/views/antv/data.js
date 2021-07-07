@@ -195,7 +195,7 @@ const props = {
 
 
 // 默认配置
-const defaultConfig = {
+const defaultC = {
     modes: {
         default: ['zoom-canvas', 'drag-canvas'],
     },
@@ -220,4 +220,4 @@ const defaultConfig = {
         },
     },
 };
-export { props, defaultConfig }
+export { props, defaultC, colors }

@@ -1,13 +1,13 @@
 <template>
   <div>
     antv实例
-    <div ref="container"></div>
+    <div id="container" ref="container"></div>
     <el-button @click="$router.go(-1)">goBack</el-button>
   </div>
 </template>
 
 <script>
-import { props, defaultConfig } from "./data";
+import { props, defaultC,colors } from "./data";
 export default {
   name: "antv",
   data() {
@@ -20,10 +20,11 @@ export default {
   computed: {
     defaultConfig() {
       let container = this.$refs.container;
+      console.log(container);
       const width = container.scrollWidth;
       const height = container.scrollHeight || 500;
       return {
-        ...defaultConfig,
+        ...defaultC,
         width,
         height,
       };
@@ -343,6 +344,7 @@ export default {
           return false;
         },
       });
+      console.log(this.defaultConfig);
       graph = new G6.TreeGraph({
         container: "container",
         ...defaultConfig,
