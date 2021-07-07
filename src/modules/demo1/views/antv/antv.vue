@@ -20,7 +20,6 @@ export default {
   computed: {
     defaultConfig() {
       let container = this.$refs.container;
-      console.log(container);
       const width = container.scrollWidth;
       const height = container.scrollHeight || 500;
       return {
@@ -36,7 +35,6 @@ export default {
        * 自定义节点
        */
       let { G6 } = this;
-      console.log(G6);
       G6.registerNode(
         "flow-rect",
         {
@@ -344,7 +342,6 @@ export default {
           return false;
         },
       });
-      console.log(this.defaultConfig);
       graph = new G6.TreeGraph({
         container: "container",
         ...defaultConfig,
@@ -393,3 +390,9 @@ export default {
   },
 };
 </script>
+
+<style lang="scss" scoped>
+.container {
+  height: 80vh;
+}
+</style>
