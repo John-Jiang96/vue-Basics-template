@@ -11,7 +11,8 @@
       <span>demo2是: {{ demo2Name }}</span> |
       <span>demo2是: {{ demo2Num }}</span>
     </p>
-    <el-button @click="open('inputForm')">进入自定义组件 示例</el-button>
+    <el-button @click="open('inputForm')">自定义组件千分位 示例</el-button>
+    <el-button @click="open('cDraggable')">拖拽组件 示例</el-button>
     <el-button @click="$router.go(-1)">返回上一页</el-button>
     <el-button @click="open('countTo')">进入数字滚动 示例</el-button>
   </div>

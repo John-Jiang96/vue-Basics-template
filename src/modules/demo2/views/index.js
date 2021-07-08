@@ -21,6 +21,12 @@ const route = [{
                 import ( /* webpackChunkName: "group-foo" */ './countTo'),
             name: 'countTo'
         },
+        {
+            path: 'cDraggable',
+            component: () =>
+                import ( /* webpackChunkName: "group-foo" */ './cDraggable'),
+            name: 'cDraggable'
+        },
     ]
 }];
 

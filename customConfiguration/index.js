@@ -19,7 +19,7 @@ const cdn = {
         "https://lib.baomitu.com/lodash.js/4.17.15/lodash.min.js",
         "https://lib.baomitu.com/dayjs/1.10.5/dayjs.min.js",
         "https://lib.baomitu.com/echarts/4.7.0/echarts-en.common.min.js",
-        "https://gw.alipayobjects.com/os/lib/antv/g6/3.7.1/dist/g6.min.js",
+        "https://gw.alipayobjects.com/os/lib/antv/g6/3.7.1/dist/g6.min.js"
     ]
 }
 

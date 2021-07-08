@@ -10,6 +10,7 @@
 
 <script>
 export default {
+  name: 'inputForm',
   data() {
     return {
       value: "",

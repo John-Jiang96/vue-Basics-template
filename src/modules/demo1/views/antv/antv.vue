@@ -1,13 +1,13 @@
 <template>
   <div>
     antv实例
-    <div id="container" ref="container"></div>
+    <div @click="click" id="container" ref="container"></div>
     <el-button @click="$router.go(-1)">goBack</el-button>
   </div>
 </template>
 
 <script>
-import { props, defaultC,colors } from "./data";
+import { props, defaultC, colors } from "./data";
 export default {
   name: "antv",
   data() {
@@ -21,7 +21,7 @@ export default {
     defaultConfig() {
       let container = this.$refs.container;
       const width = container.scrollWidth;
-      const height = container.scrollHeight || 500;
+      const height = container.scrollHeight || 700;
       return {
         ...defaultC,
         width,
@@ -30,6 +30,7 @@ export default {
     },
   },
   methods: {
+    click() {},
     registerFn() {
       /**
        * 自定义节点
@@ -275,7 +276,7 @@ export default {
                 ? targetNode.getModel()
                 : endPoint;
               let curveStart = (endX - startX) * coefficientX;
-              let curveEnd = (endY - startY) * coefficientY;
+              let addShapecurveEnd = (endY - startY) * coefficientY;
               curveStart = curveStart > 40 ? 40 : curveStart;
               curveEnd = curveEnd < -30 ? curveEnd : -30;
               controlPoints = [
@@ -369,6 +370,10 @@ export default {
       });
       graph.on("collapse-back:click", (e) => {
         handleCollapse(e);
+      });
+      graph.on("dblclick", (evt) => {
+        // 一些操作
+        console.log(evt);
       });
     },
     changeSize() {
