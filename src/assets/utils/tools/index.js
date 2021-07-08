@@ -28,7 +28,7 @@ const utils = [{
     },
     {
         name: 'config',
-        entity: config
+        entity: config[process.env.NODE_ENV]
     },
     {
         name: 'echarts',

@@ -11,9 +11,11 @@
       <span>demo1是: {{ demo1Name }}</span> |
       <span>demo1是: {{ demo1Num }}</span>
     </p>
-    <el-button @click="open('echarts')">进入echart 示例</el-button>
+    <el-button type="primary" @click="open('echarts')"
+      >进入echart 示例</el-button
+    >
     <el-button @click="$router.go(-1)">返回上一页</el-button>
-    <el-button @click="open('antv')">进入antv 示例</el-button>
+    <el-button type="primary" @click="open('antv')">进入antv 示例</el-button>
   </div>
 </template>
 
