@@ -20,6 +20,7 @@
         "vuedraggable": "^2.24.3",
         "vuex": "^3.4.0",
         "vuex-persistedstate": "^4.0.0-beta.3",
+        "vuex-router-sync": "^5.0.0",
         "webpack-bundle-analyzer": "^3.6.1"
     },
     "devDependencies": {
