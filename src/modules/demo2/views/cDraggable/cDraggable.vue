@@ -38,7 +38,7 @@
     </div>
     <div>
       <h3>场景3 多列</h3>
-      <div class="itxst">
+      <div class="itxst scene_3">
         <div class="col">
           <div class="title">国内网站</div>
           <draggable
@@ -57,10 +57,12 @@
                 <span class="move">
                   {{ item.name }}
                 </span>
-                <span>123</span>
+                <hr />
+                <span>按住我不能拖拽</span>
               </div>
             </transition-group>
           </draggable>
+          {{ arr1 }}
         </div>
         <div class="col">
           <div class="title">你可以把左边的元素拖到右边</div>
@@ -76,14 +78,18 @@
           >
             <transition-group>
               <div class="item" v-for="item in arr2" :key="item.id">
-                {{ item.name }}
+                <span> {{ item.name }}</span>
+                <hr />
+                <span>按住我可以拖拽</span>
               </div>
             </transition-group>
           </draggable>
+          {{ arr2 }}
         </div>
       </div>
     </div>
-    <el-button @click="goBack">返回</el-button>
+   
+   <el-button @click="goBack">返回</el-button>
   </div>
 </template>
 <script>
@@ -104,16 +110,16 @@ export default {
       ],
       //定义要被拖拽对象的数组
       arr1: [
-        { id: 1, name: "www.itxst.com" },
-        { id: 2, name: "www.jd.com" },
-        { id: 3, name: "www.baidu.com" },
-        { id: 3, name: "www.taobao.com" },
+        { id: 1, name: "按住我移动(1)" },
+        { id: 2, name: "按住我移动(2)" },
+        { id: 3, name: "按住我移动(3)" },
+        { id: 4, name: "按住我移动(4)" },
       ],
       arr2: [
-        { id: 1, name: "www.google.com" },
-        { id: 2, name: "www.msn.com" },
-        { id: 3, name: "www.ebay.com" },
-        { id: 4, name: "www.yahoo.com" },
+        { id: 5, name: "按住我移动(5)" },
+        { id: 6, name: "按住我移动(6)" },
+        { id: 7, name: "按住我移动(7)" },
+        { id: 8, name: "按住我移动(8)" },
       ],
     };
   },
@@ -157,7 +163,11 @@ export default {
   border: solid 1px #3089dc !important;
 }
 </style>
+// 实例3样式
 <style scoped>
+.scene_3 {
+  display: flex;
+}
 /*定义要拖拽元素的样式*/
 .ghostClass {
   background-color: blue !important;
@@ -185,7 +195,6 @@ export default {
   padding: 10px;
   border: solid 1px #eee;
   border-radius: 5px;
-  float: left;
 }
 .col + .col {
   margin-left: 10px;
