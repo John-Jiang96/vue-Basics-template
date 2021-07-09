@@ -2,8 +2,8 @@
   <div class="login">
     <p>登录</p>
     <p>
-      <span>登录状态: {{ isLogin }}</span> | 
-      <span>登录人名称: {{ name }}</span> | 
+      <span>登录状态: {{ isLogin }}</span> |
+      <span>登录人名称: {{ name }}</span> |
       <span>登录人密码: {{ num }}</span>
     </p>
     <p class="login-info">
@@ -53,10 +53,10 @@ export default {
       });
     },
   },
-  mounted(){
-    this.userName = this.name
-    this.passWord = this.num
-  }
+  mounted() {
+    this.userName = this.name;
+    this.passWord = this.num;
+  },
 };
 </script>
 

@@ -15,6 +15,7 @@
     <el-button @click="open('cDraggable')">拖拽组件 示例</el-button>
     <el-button @click="$router.go(-1)">返回上一页</el-button>
     <el-button @click="open('countTo')">进入数字滚动 示例</el-button>
+    <el-button @click="open('slotTemplate')">插槽 示例</el-button>
   </div>
 </template>
 
