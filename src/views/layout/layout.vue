@@ -3,7 +3,7 @@
     <div class="topHeader">
       <div class="tool-config">title</div>
       <topMenus />
-      <div class="tool-config">
+      <div class="tool-config right-tool">
         <themeColor />
         <screenful />
       </div>

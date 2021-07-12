@@ -11,12 +11,12 @@
       class="top-menu-item"
         v-for="(item, index) of menuList"
         :key="index"
-        :index="menuList.id"
+        :index="index + ''"
         v-show="index < hideMenusIndex || hideMenusIndex === -1"
-        >{{ item.name }}</el-menu-item
+        >{{ item.meta.title }}</el-menu-item
       >
     </el-menu>
-    
+
     <el-dropdown
       class="more-menu"
       :style="{ visibility: hideMenusIndex > -1 ? 'visible' : 'hidden' }"
@@ -49,20 +49,7 @@ export default {
     return {
       activeTopMenu: "0",
       hideMenusIndex: -1,
-      menuList: [
-        {
-          name: "菜单按钮1",
-          id: 1,
-        },
-        {
-          name: "菜单按钮2",
-          id: 2,
-        },
-        {
-          name: "菜单按钮3",
-          id: 3,
-        },
-      ],
+      menuList: [],
     };
   },
   watch: {
@@ -71,7 +58,14 @@ export default {
     },
   },
   methods: {
-    handleSelect() {},
+    handleSelect(index) {
+        if(this.menuList[index].children.length){
+            this.$router.push(this.menuList[index].children[0].path)
+        }else{
+            this.$router.push(this.menuList[index].path)
+            
+        }
+    },
     handleToggleMenu() {
       this.hideMenusIndex = -1;
       this.$nextTick(() => {
@@ -87,6 +81,8 @@ export default {
   },
   mounted() {
     window.addEventListener("resize", this.handleToggleMenu);
+    let list = require(`@/modules/${window.rdpModule}/views`);
+    this.menuList = list.default
   },
   destroyed() {
     window.removeEventListener("resize", this.handleToggleMenu);

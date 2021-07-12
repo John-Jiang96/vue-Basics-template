@@ -12,6 +12,12 @@
     display: flex;
 }
 
+.right-tool {
+    width: 100px;
+    display: flex;
+    justify-content: space-around;
+}
+
 .examples {
     display: flex;
     color: #000;

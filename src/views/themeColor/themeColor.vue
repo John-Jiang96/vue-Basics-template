@@ -299,6 +299,7 @@ export default {
 }
 
 .theme-list {
+  padding-top: 20px;
   li {
     width: 52px;
     color: #fff;
