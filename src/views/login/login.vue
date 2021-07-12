@@ -6,14 +6,16 @@
       <span>登录人名称: {{ name }}</span> |
       <span>登录人密码: {{ num }}</span>
     </p>
-    <p class="login-info">
-      <el-input autofocus v-model="userName">
-        <template slot="prepend">账号</template>
-      </el-input>
-      <el-input autofocus v-model="passWord">
-        <template slot="prepend">密码</template>
-      </el-input>
-    </p>
+    <div class="login-info">
+      <div class="user-input">
+        <el-input autofocus v-model="userName">
+          <template slot="prepend">账号</template>
+        </el-input>
+        <el-input autofocus v-model="passWord">
+          <template slot="prepend">密码</template>
+        </el-input>
+      </div>
+    </div>
     <div class="login-button">
       <el-button @click="login">登录</el-button> <br />
       <el-button @click="exitLogo">退出登录</el-button> <br />
@@ -63,8 +65,9 @@ export default {
 <style lang="scss" scoped>
 .login {
   .login-info {
-    width: 350px;
-    margin: 0 auto;
+    width: 100%;
+    display: flex;
+    justify-content: center;
   }
   .login-button {
     display: flex;

@@ -33,6 +33,18 @@ const route = [{
                 import ( /* webpackChunkName: "group-foo" */ './slotTemplate'),
             name: 'slotTemplate'
         },
+        {
+            path: 'fuseInput',
+            component: () =>
+                import ( /* webpackChunkName: "group-foo" */ './fuseInput'),
+            name: 'fuseInput'
+        },
+        {
+            path: 'fileDownloadZip',
+            component: () =>
+                import ( /* webpackChunkName: "group-foo" */ './fileDownloadZip'),
+            name: 'fileDownloadZip'
+        },
     ]
 }];
 

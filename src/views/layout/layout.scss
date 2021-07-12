@@ -1,0 +1,63 @@
+.topHeader {
+    width: 100%;
+    display: flex;
+    background-color: var(--nav-color);
+    div {
+        line-height: 60px;
+    }
+}
+
+.tool-config {
+    padding: 0 20px;
+    display: flex;
+}
+
+.examples {
+    display: flex;
+    color: #000;
+    &>div:nth-child(1) {
+        display: flex;
+        flex: 1;
+        &>div {
+            width: 20px;
+            height: 20px;
+            background-color: var(--theme-color);
+        }
+    }
+    &>div:nth-child(2) {
+        display: flex;
+        flex: 1;
+        &>div {
+            width: 20px;
+            height: 20px;
+            background-color: var(--nav-color);
+        }
+    }
+    &>div:nth-child(3) {
+        display: flex;
+        flex: 1;
+        &>div {
+            width: 20px;
+            height: 20px;
+            background-color: var(--nav-active-color);
+        }
+    }
+    &>div:nth-child(4) {
+        display: flex;
+        flex: 1;
+        &>div {
+            width: 20px;
+            height: 20px;
+            background-color: var(--theme-active-color);
+        }
+    }
+    &>div:nth-child(5) {
+        display: flex;
+        flex: 1;
+        &>div {
+            width: 20px;
+            height: 20px;
+            background-color: var(--theme-hover-color);
+        }
+    }
+}

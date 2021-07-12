@@ -11,20 +11,29 @@
       <span>demo2是: {{ demo2Name }}</span> |
       <span>demo2是: {{ demo2Num }}</span>
     </p>
-    <el-button @click="open('inputForm')">自定义组件千分位 示例</el-button>
-    <el-button @click="open('cDraggable')">拖拽组件 示例</el-button>
+    <el-button
+      v-for="(item, index) of menus[0].children"
+      :key="index"
+      @click="open(item.path)"
+      >{{ item.name }}</el-button
+    >
     <el-button @click="$router.go(-1)">返回上一页</el-button>
-    <el-button @click="open('countTo')">进入数字滚动 示例</el-button>
-    <el-button @click="open('slotTemplate')">插槽 示例</el-button>
   </div>
 </template>
 
 <script>
+import menus from "../index";
+console.log(menus);
 import { createNamespacedHelpers } from "vuex";
 const { mapGetters: demo2Getters, mapActions: demo2Actions } =
   createNamespacedHelpers("demo2");
 const { mapGetters: loginGetters } = createNamespacedHelpers("login");
 export default {
+  data() {
+    return {
+      menus,
+    };
+  },
   computed: {
     ...demo2Getters({
       demo2Name: "name",
