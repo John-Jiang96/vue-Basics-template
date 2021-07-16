@@ -1,11 +1,5 @@
 <template>
   <div class="login">
-    <p>登录</p>
-    <p>
-      <span>登录状态: {{ isLogin }}</span> |
-      <span>登录人名称: {{ name }}</span> |
-      <span>登录人密码: {{ num }}</span>
-    </p>
     <div class="login-info">
       <div class="user-input">
         <el-input autofocus v-model="userName">
@@ -17,11 +11,8 @@
       </div>
     </div>
     <div class="login-button">
-      <el-button @click="login">登录</el-button> <br />
-      <el-button @click="exitLogo">退出登录</el-button> <br />
+      <el-button v-for="page in pages" :key="page.VUE_APP_TITLE" @click="login(page.VUE_APP_SYSTEM_HOME_URL)">{{ page.VUE_APP_TITLE }}</el-button>
     </div>
-    <a href="demo1/demo1Home">去demo1</a> |
-    <a href="demo2/demo2Home">去demo2</a>
   </div>
 </template>
 
@@ -32,14 +23,15 @@ export default {
     return {
       userName: "",
       passWord: "",
+      pages: {}
     };
   },
   computed: {
-    ...mapGetters("login", ["isLogin", "name", "num"]),
+    ...mapGetters("login", ["name", "num"]),
   },
   methods: {
     ...mapActions("login", ["setName", "setNum", "setLogin"]),
-    login() {
+    login(home) {
       let { userName, passWord } = this;
       if (!userName || !passWord) {
         this.$message.warning("缺少字段");
@@ -48,14 +40,13 @@ export default {
       this.setName(userName);
       this.setNum(passWord);
       this.setLogin(true);
-    },
-    exitLogo() {
-      this.$store.dispatch("resetState").then((ret) => {
-        this.$router.push("/login");
-      });
+      console.log(home);
+      // this.$router.push({ path: this.$config.home });
+      window.location.href = home
     },
   },
   mounted() {
+    this.pages = API_CONFIG
     this.userName = this.name;
     this.passWord = this.num;
   },

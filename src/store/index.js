@@ -1,8 +1,6 @@
-import config from '../../customConfiguration/config';
 import createPersistedState from "vuex-persistedstate";
 import modules from './modules';
 import Vue from 'vue';
-const env = config[process.env.NODE_ENV];
 Vue.use(Vuex)
 
 const store = new Vuex.Store({
@@ -12,6 +10,9 @@ const store = new Vuex.Store({
             let params = {
                 login: {
                     ...state.login
+                },
+                menus: {
+                    ...state.menus
                 }
             };
             return params;
@@ -19,11 +20,11 @@ const store = new Vuex.Store({
     })],
     modules: {
         ...modules.global,
+        ...modules.menus,
         ...modules.other
     },
     actions: {
         resetState(context) {
-            // let types = _.keys(context.rootState);
             let types = Object.keys(context.rootState)
             Vue.$cookies.remove('isLogin');
             localStorage.clear();

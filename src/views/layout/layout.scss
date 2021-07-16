@@ -2,68 +2,27 @@
     width: 100%;
     display: flex;
     background-color: var(--nav-color);
-    div {
-        line-height: 60px;
+    height: 60px;
+    .title {
+        padding: 0 20px;
+        display: flex;
+        align-items: center;
+    }
+    .tool-config {
+        display: flex;
+        align-items: center;
     }
 }
 
-.tool-config {
-    padding: 0 20px;
+.content {
     display: flex;
-}
-
-.right-tool {
-    width: 100px;
-    display: flex;
-    justify-content: space-around;
-}
-
-.examples {
-    display: flex;
-    color: #000;
-    &>div:nth-child(1) {
-        display: flex;
-        flex: 1;
-        &>div {
-            width: 20px;
-            height: 20px;
-            background-color: var(--theme-color);
-        }
-    }
-    &>div:nth-child(2) {
-        display: flex;
-        flex: 1;
-        &>div {
-            width: 20px;
-            height: 20px;
-            background-color: var(--nav-color);
-        }
-    }
-    &>div:nth-child(3) {
-        display: flex;
-        flex: 1;
-        &>div {
-            width: 20px;
-            height: 20px;
-            background-color: var(--nav-active-color);
-        }
-    }
-    &>div:nth-child(4) {
-        display: flex;
-        flex: 1;
-        &>div {
-            width: 20px;
-            height: 20px;
-            background-color: var(--theme-active-color);
-        }
-    }
-    &>div:nth-child(5) {
-        display: flex;
-        flex: 1;
-        &>div {
-            width: 20px;
-            height: 20px;
-            background-color: var(--theme-hover-color);
-        }
+    width: 100%;
+    height: calc(100vh - 60px);
+    overflow: hidden;
+    .view-container {
+        width: 100%;
+        padding: 20px;
+        height: calc(100% - 40px);
+        overflow: auto;
     }
 }

@@ -106,7 +106,6 @@ export default {
       let classNames = Vue.$config.customBg;
 
       return (color) => {
-        debugger;
         if (classNames.length) {
           return `${Vue.$config.customBg.join(
             ","
@@ -120,7 +119,6 @@ export default {
       let classNames = Vue.$config.customColor;
 
       return (color) => {
-        debugger;
         if (classNames.length) {
           return `${Vue.$config.customColor.join(
             ","
@@ -299,7 +297,6 @@ export default {
 }
 
 .theme-list {
-  padding-top: 20px;
   li {
     width: 52px;
     color: #fff;

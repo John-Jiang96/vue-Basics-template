@@ -1,3 +1,4 @@
+import layout from '@/views/layout/layout.vue';
 const routerPush = VueRouter.prototype.push
 VueRouter.prototype.push = function push(location) {
     return routerPush.call(this, location).catch(error => error)
@@ -18,7 +19,17 @@ const createRouter = (views) => {
             component: () =>
                 import ( /* webpackChunkName: "group-foo" */ '@/views/login/login.vue'),
         },
-        ...views
+        {
+            path: '/',
+            component: layout,
+            meta: {
+                title: '不带左侧菜单的空白页'
+            },
+            name: 'demo1',
+            children: [
+                ...views
+            ]
+        }
     ]
 
     const router = new VueRouter({
@@ -40,6 +51,9 @@ const createRouter = (views) => {
         const { meta, name } = to;
         if (name !== 'login' && !isLogin) {
             next('/login')
+        }
+        if (name === 'login' && isLogin) {
+            next(Vue.$config.home)
         }
         next()
     });

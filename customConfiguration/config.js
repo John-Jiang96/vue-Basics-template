@@ -5,6 +5,7 @@ const config = {
     theme: API_CONFIG[window.rdpModule].VUE_APP_THEME,
     home: API_CONFIG[window.rdpModule].VUE_APP_SYSTEM_HOME_URL,
     isIndex: API_CONFIG[window.rdpModule].VUE_IS_INDEX,
+    leftMenu: API_CONFIG[window.rdpModule].VUE_APP_LEFT_MENU,
     timeout: 10000,
     customBg: [],
     customColor: []

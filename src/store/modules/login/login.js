@@ -3,7 +3,8 @@ const initState = () => {
         isLogin: false,
         name: '',
         num: '',
-        themeColor: {}
+        themeColor: {},
+
     };
 };
 const state = initState();
@@ -20,6 +21,7 @@ const getters = {
     themeColor(state) {
         return state.themeColor
     },
+
 };
 const mutations = {
     setName(state, value) {
@@ -30,12 +32,12 @@ const mutations = {
     },
     setLogin(state, value) {
         state.isLogin = value;
-        Vue.$cookies.set('isLogin', value, '192.168.2.35', '/a/12');
+        Vue.$cookies.set('isLogin', value);
     },
     setThemeColor(state, value) {
-        console.log(value);
         state.themeColor = value
     },
+
     // 用于退出登录统一重置数据
     resetState(state) {
         Object.assign(state, initState());
@@ -50,7 +52,8 @@ const actions = {
     },
     setNum({ commit }, value) {
         commit('setNum', value);
-    }
+    },
+
 };
 
 export default {

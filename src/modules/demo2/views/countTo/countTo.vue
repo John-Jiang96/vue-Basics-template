@@ -40,7 +40,6 @@
     <el-button type="primary" @click="start">开始</el-button>
     <el-button type="primary" @click="pause">暂停</el-button>
     <el-button type="primary" @click="pauseResume">暂停/回复</el-button>
-    <el-button type="primary" @click="goBack">goBack</el-button>
   </div>
 </template>
  
@@ -69,10 +68,7 @@ export default {
     },
     pauseResume() {
       this.$refs.countTo.pauseResume();
-    },
-    goBack() {
-      this.$router.go(-1);
-    },
+    }
   },
 };
 </script>

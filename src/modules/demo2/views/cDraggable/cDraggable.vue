@@ -88,8 +88,6 @@
         </div>
       </div>
     </div>
-   
-   <el-button @click="goBack">返回</el-button>
   </div>
 </template>
 <script>
@@ -132,9 +130,6 @@ export default {
     //拖拽结束事件
     onEnd() {
       this.drag = false;
-    },
-    goBack() {
-      this.$router.go(-1);
     },
   },
 };

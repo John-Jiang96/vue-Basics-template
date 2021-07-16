@@ -1,31 +1,11 @@
-import layout from '@/views/layout/layout.vue';
-const route = [{
-    path: '/demo1',
-    component: layout,
-    name: 'demo1',
-    children: [{
-            path: 'demo1Home',
-            component: () =>
-                import ( /* webpackChunkName: "group-foo" */ './home'),
-            name: 'demo1Home'
-        },
-        {
-            path: 'echarts',
-            component: () =>
-                import ( /* webpackChunkName: "group-foo" */ './echarts'),
-            name: 'echarts'
-        },
-        {
-            path: 'antv',
-            component: () =>
-                import ( /* webpackChunkName: "group-foo" */ './antv'),
-            name: 'antv'
-        },
-    ]
-}, ];
-
+import blank from './blank'
+import blank2 from './blank2'
+const route = [
+    blank,
+    blank2
+];
 route.forEach(item => {
-    item.children.forEach(it => {
+    item.children && item.children.forEach(it => {
         it.path = `${item.path}/${it.path}`;
     });
 });

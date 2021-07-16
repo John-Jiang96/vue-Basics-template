@@ -8,7 +8,6 @@
       alt=""
     />
     <el-button @click="filesToRar()">下载图片</el-button>
-    <el-button @click="$router.go(-1)">返回</el-button>
   </div>
 </template>
 <script>

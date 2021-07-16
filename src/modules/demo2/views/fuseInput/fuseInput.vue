@@ -3,14 +3,13 @@
     <el-input v-model="title" placeholder="请输入内容"></el-input>
     <ul>
       <li v-for="item in result" :key="item">
-        标题： {{item.item.title}}
+        标题： {{ item.item.title }}
         <br />
-        作者： {{item.item.author.firstName}}
+        作者： {{ item.item.author.firstName }}
         <br />
-        分数： {{item.score}}
+        分数： {{ item.score }}
       </li>
     </ul>
-    <el-button @click="$router.go(-1)">返回</el-button>
   </div>
 </template>
 
@@ -19,43 +18,47 @@
 import Fuse from "fuse.js";
 export default {
   data() {
+    const info = this;
+    const ceshi = {
+      callback: () => {
+        console.log(this);
+        console.log(info);
+      },
+    };
     return {
       title: "",
       fuse: null,
       result: [],
+      ceshi,
       books: [
         {
           title: "Java虚拟机",
           author: {
             firstName: "王浩",
-            lastName: "wanghao"
-          }
+            lastName: "wanghao",
+          },
         },
         {
           title: "人工智能",
           author: {
             firstName: "侯建军",
-            lastName: "marquis"
-          }
-        }
-      ]
+            lastName: "marquis",
+          },
+        },
+      ],
     };
   },
   created() {
     // 2. 初始化
     this.init();
+    this.ceshi.callback();
   },
   watch: {
     // 要变量名一致
     title(newName, oldName) {
-      // 新值
-      console.log(newName);
-      // 旧值
-      console.log(oldName);
       // 3. 搜索内容
       this.result = this.fuse.search(newName);
-      console.log(this.result);
-    }
+    },
   },
   methods: {
     // 初始化
@@ -73,11 +76,11 @@ export default {
         maxPatternLength: 32, // 模式的最大长度
         minMatchCharLength: 1, // 模式的最小字符长度
         // 搜索标题与作者名
-        keys: ["title", "author.firstName"]
+        keys: ["title", "author.firstName"],
       };
       // 设置数据与参数
       this.fuse = new Fuse(this.books, options);
-    }
-  }
+    },
+  },
 };
 </script>

@@ -1,18 +1,19 @@
-import layout from '@/views/layout/layout.vue';
+import layout from 'components/blankLayout/blankLayout.vue'
 const route = [{
         path: '/demo2',
         component: layout,
-        name: 'demo1',
+        name: 'demo2',
         meta: {
             title: '外部组件'
         },
         children: [{
-                path: 'countTo',
+                path: '',
                 component: () =>
                     import ( /* webpackChunkName: "group-foo" */ './countTo'),
                 name: 'countTo',
                 meta: {
-                    title: '数字滚动'
+                    title: '数字滚动',
+                    keepAlive: true
                 },
             },
             {
@@ -30,7 +31,8 @@ const route = [{
                     import ( /* webpackChunkName: "group-foo" */ './fuseInput'),
                 name: 'fuseInput',
                 meta: {
-                    title: '模糊搜索'
+                    title: '模糊搜索',
+                    keepAlive: true
                 },
             },
             {
@@ -47,7 +49,7 @@ const route = [{
     {
         path: '/demo2',
         component: layout,
-        name: 'demo1',
+        name: 'demo2',
         meta: {
             title: '自定义组件'
         },

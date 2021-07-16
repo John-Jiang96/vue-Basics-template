@@ -1,5 +1,13 @@
 <template>
   <div class="top-menu-wrap">
+    <i
+      v-if="
+        currentMenus && currentMenus.children && currentMenus.children.length
+      "
+      class="isCollapse-icon"
+      @click="setIsCollapse(!isCollapse)"
+      :class="!isCollapse ? 'el-icon-s-fold' : 'el-icon-s-unfold'"
+    ></i>
     <el-menu
       :default-active="activeTopMenu"
       class="topMenu"
@@ -8,10 +16,10 @@
       text-color="#fff"
     >
       <el-menu-item
-      class="top-menu-item"
+        class="top-menu-item"
         v-for="(item, index) of menuList"
         :key="index"
-        :index="index + ''"
+        :index="index"
         v-show="index < hideMenusIndex || hideMenusIndex === -1"
         >{{ item.meta.title }}</el-menu-item
       >
@@ -43,11 +51,11 @@
   </div>
 </template>
 <script>
+import { mapGetters, mapActions } from "vuex";
 export default {
   name: "topMenus",
   data() {
     return {
-      activeTopMenu: "0",
       hideMenusIndex: -1,
       menuList: [],
     };
@@ -57,14 +65,28 @@ export default {
       this.handleToggleMenu();
     },
   },
+  computed: {
+    ...mapGetters("menus", ["isCollapse", "currentMenus", "activeTopMenu"]),
+  },
   methods: {
+    ...mapActions("menus", [
+      "setCurrentMenus",
+      "setIsCollapse",
+      "setActiveTopMenu",
+      "setLeftActiveMenu",
+    ]),
     handleSelect(index) {
-        if(this.menuList[index].children.length){
-            this.$router.push(this.menuList[index].children[0].path)
-        }else{
-            this.$router.push(this.menuList[index].path)
-            
-        }
+      if (
+        this.menuList[index].children &&
+        this.menuList[index].children.length
+      ) {
+        this.$router.push(this.menuList[index].children[0].path);
+      } else {
+        this.$router.push(this.menuList[index].path);
+      }
+      this.setCurrentMenus(this.menuList[index]);
+      this.setActiveTopMenu(index);
+      this.setLeftActiveMenu(0);
     },
     handleToggleMenu() {
       this.hideMenusIndex = -1;
@@ -82,7 +104,8 @@ export default {
   mounted() {
     window.addEventListener("resize", this.handleToggleMenu);
     let list = require(`@/modules/${window.rdpModule}/views`);
-    this.menuList = list.default
+    this.menuList = list.default;
+    this.setCurrentMenus(this.menuList[this.activeTopMenu]);
   },
   destroyed() {
     window.removeEventListener("resize", this.handleToggleMenu);
@@ -94,6 +117,11 @@ export default {
 .top-menu-wrap {
   width: 100%;
   display: flex;
+  align-items: center;
+  .isCollapse-icon {
+    font-size: 24px;
+    cursor: pointer;
+  }
   .topMenu {
     &.el-menu {
       flex: 1;

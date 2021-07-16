@@ -2,10 +2,12 @@
   <div>
     <p>下面是组件</p>
     <children-a>
-      <p>设置内容</p>
+      <template slot-scope="scope">
+        {{ scope }}
+        <p>设置内容</p>
+      </template>
       <p slot="nameA">具名插槽nameA</p>
     </children-a>
-    <el-button @click="$router.go(-1)">返回</el-button>
   </div>
 </template>
 
